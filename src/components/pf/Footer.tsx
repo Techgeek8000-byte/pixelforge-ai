@@ -4,9 +4,9 @@ import AdBanner from './AdBanner';
 
 const crossTools = [
   { label: 'ToolPDF', href: 'https://tool-pdf-six.vercel.app' },
-  { label: 'CalcHub', href: 'https://calchub.vercel.app' },
-  { label: 'ConvertFlow', href: 'https://convertflow.vercel.app' },
-  { label: 'SEOKit', href: 'https://seokit.vercel.app' },
+  { label: 'CalcHub', href: 'https://calc-hub-ashy.vercel.app' },
+  { label: 'ConvertFlow', href: 'https://convert-flow-beta.vercel.app' },
+  { label: 'SEOKit', href: 'https://seo-kit-tau.vercel.app' },
 ];
 
 export default function Footer() {
