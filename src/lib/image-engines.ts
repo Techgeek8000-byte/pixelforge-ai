@@ -7,7 +7,7 @@ import type { AiTool } from './tool-definitions';
 
 const BASE_URL = 'https://image.pollinations.ai/prompt/';
 
-const FREE_DAILY_LIMIT = 10;
+export const FREE_DAILY_LIMIT = 10;
 
 // Check daily usage from localStorage
 export function getDailyUsage(): number {
