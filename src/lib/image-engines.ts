@@ -163,7 +163,7 @@ export function downloadImage(
         ctx.textBaseline = 'bottom';
         ctx.shadowColor = 'rgba(0, 0, 0, 0.6)';
         ctx.shadowBlur = 4;
-        ctx.fillText('PixelForge AI — A Project By Osama', canvas.width - 16, canvas.height - 12);
+        ctx.fillText('A Project By Osama', canvas.width - 16, canvas.height - 12);
       }
 
       const link = document.createElement('a');

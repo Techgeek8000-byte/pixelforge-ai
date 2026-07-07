@@ -321,7 +321,7 @@ export default function ToolWorkspace() {
                   />
                   {/* Watermark overlay for free users */}
                   {!isPremium && (
-                    <span className="pf-watermark">PixelForge AI — A Project By Osama</span>
+                    <span className="pf-watermark">A Project By Osama</span>
                   )}
                 </div>
 
