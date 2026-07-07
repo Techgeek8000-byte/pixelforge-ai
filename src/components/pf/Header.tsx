@@ -44,6 +44,9 @@ export default function Header() {
           <span className="text-lg font-bold pf-gradient-text-animated tracking-tight">
             🎨 PixelForge AI
           </span>
+          <span className="hidden sm:inline text-[10px] font-semibold tracking-wider text-slate-500 uppercase ml-1">
+            A Project by Osama
+          </span>
         </button>
 
         {/* Desktop nav */}

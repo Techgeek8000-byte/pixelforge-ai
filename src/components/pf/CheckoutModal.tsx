@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Check, Zap, Crown, Clock, Infinity, Star } from 'lucide-react';
+import { LEMON_SQUEEZY } from '@/lib/lemonsqueezy';
 
 interface CheckoutModalProps {
   open: boolean;

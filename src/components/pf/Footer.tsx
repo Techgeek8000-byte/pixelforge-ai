@@ -18,7 +18,8 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
-            <h3 className="text-sm font-bold pf-gradient-text mb-3">🎨 PixelForge AI</h3>
+            <h3 className="text-sm font-bold pf-gradient-text mb-1">🎨 PixelForge AI</h3>
+            <p className="text-[10px] font-semibold tracking-wider text-slate-500 uppercase mb-2">A Project by Osama</p>
             <p className="text-xs text-slate-500 leading-relaxed">
               Free AI image generation tools. Create avatars, logos, art, and more.
             </p>
