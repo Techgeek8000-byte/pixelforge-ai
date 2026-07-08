@@ -47,6 +47,14 @@ const options = [
   },
 ];
 
+function getPlan(planName: string): keyof typeof LEMON_SQUEEZY {
+  const n = planName.toLowerCase();
+  if (n.includes('weekly')) return 'weekly';
+  if (n.includes('yearly')) return 'yearly';
+  if (n.includes('lifetime')) return 'lifetime';
+  return 'monthly';
+}
+
 export default function CheckoutModal({ open, onClose }: CheckoutModalProps) {
   return (
     <AnimatePresence>
@@ -115,7 +123,8 @@ export default function CheckoutModal({ open, onClose }: CheckoutModalProps) {
 
                     <button
                       onClick={() => {
-                        alert(`LemonSqueezy checkout for ${opt.name} (${opt.price}) would open here.`);
+                        const plan = getPlan(opt.name);
+                        window.open(LEMON_SQUEEZY[plan], '_blank');
                       }}
                       className={`w-full py-2.5 text-sm font-semibold text-white rounded-xl transition-opacity hover:opacity-90 ${
                         opt.popular
