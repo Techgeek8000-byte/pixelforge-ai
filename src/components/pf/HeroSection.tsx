@@ -1,7 +1,9 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Search, Sparkles, Zap, Shield } from 'lucide-react';
+import { Search, Sparkles, Zap, Shield, BarChart3 } from 'lucide-react';
+import { getTotalGenerations } from '@/lib/usage-counter';
 
 interface HeroSectionProps {
   searchQuery: string;
@@ -100,6 +102,11 @@ function FloatingShapes() {
 }
 
 export default function HeroSection({ searchQuery, onSearchChange }: HeroSectionProps) {
+  const [totalGens, setTotalGens] = useState(0);
+
+  useEffect(() => {
+    setTotalGens(getTotalGenerations());
+  }, []);
   return (
     <section className="relative pt-16 pb-12 sm:pt-24 sm:pb-16 text-center px-4 overflow-hidden">
       <FloatingShapes />
@@ -182,6 +189,15 @@ export default function HeroSection({ searchQuery, onSearchChange }: HeroSection
             {s}
           </motion.p>
         ))}
+        {totalGens > 0 && (
+          <motion.p
+            whileHover={{ scale: 1.05 }}
+            className="inline-flex items-center gap-1.5 text-lg sm:text-xl font-bold text-purple-300 cursor-default"
+          >
+            <BarChart3 className="w-4 h-4" />
+            {totalGens.toLocaleString()} Images Generated
+          </motion.p>
+        )}
       </motion.div>
     </section>
   );

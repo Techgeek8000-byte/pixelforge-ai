@@ -15,6 +15,8 @@ interface AppState {
   setIsGenerating: (v: boolean) => void;
   generatedImageUrl: string | null;
   setGeneratedImageUrl: (url: string | null) => void;
+  generatedPrompt: string;
+  setGeneratedPrompt: (p: string) => void;
   error: string | null;
   setError: (err: string | null) => void;
   isPremium: boolean;
@@ -22,7 +24,17 @@ interface AppState {
   incrementUsage: () => void;
   checkoutOpen: boolean;
   setCheckoutOpen: (v: boolean) => void;
+  theme: 'dark' | 'light';
+  setTheme: (t: 'dark' | 'light') => void;
   resetTool: () => void;
+}
+
+function getInitialTheme(): 'dark' | 'light' {
+  if (typeof window !== 'undefined') {
+    const stored = localStorage.getItem('pf-theme');
+    if (stored === 'light' || stored === 'dark') return stored;
+  }
+  return 'dark';
 }
 
 export const useStore = create<AppState>((set) => ({
@@ -40,6 +52,8 @@ export const useStore = create<AppState>((set) => ({
   setIsGenerating: (v) => set({ isGenerating: v }),
   generatedImageUrl: null,
   setGeneratedImageUrl: (url) => set({ generatedImageUrl: url }),
+  generatedPrompt: '',
+  setGeneratedPrompt: (p) => set({ generatedPrompt: p }),
   error: null,
   setError: (err) => set({ error: err }),
   isPremium: false,
@@ -48,6 +62,13 @@ export const useStore = create<AppState>((set) => ({
     set((s) => ({ dailyUsageCount: s.dailyUsageCount + 1 })),
   checkoutOpen: false,
   setCheckoutOpen: (v) => set({ checkoutOpen: v }),
+  theme: getInitialTheme(),
+  setTheme: (t) => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('pf-theme', t);
+    }
+    set({ theme: t });
+  },
   resetTool: () =>
     set({
       promptText: '',
@@ -55,6 +76,7 @@ export const useStore = create<AppState>((set) => ({
       selectedSize: '1:1',
       isGenerating: false,
       generatedImageUrl: null,
+      generatedPrompt: '',
       error: null,
     }),
 }));

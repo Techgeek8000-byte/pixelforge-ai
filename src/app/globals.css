@@ -132,6 +132,52 @@
   box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.12);
 }
 
+/* ─── Light Theme Overrides ─── */
+html.pf-light body {
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+html.pf-light .pf-card-3d {
+  background: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(248,250,252,0.95));
+  border-color: rgba(0,0,0,0.08);
+}
+html.pf-light .pf-card-3d:hover {
+  box-shadow: 0 20px 60px -15px rgba(168,85,247,0.1), 0 0 0 1px rgba(168,85,247,0.15);
+}
+
+html.pf-light .pf-glass-3d {
+  background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(248,250,252,0.6));
+  border-color: rgba(0,0,0,0.08);
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.5);
+}
+
+html.pf-light .pf-textarea,
+html.pf-light .pf-input,
+html.pf-light .pf-select {
+  background: rgba(255,255,255,0.9);
+  border-color: rgba(0,0,0,0.1);
+  color: #1e293b;
+}
+html.pf-light .pf-textarea:focus,
+html.pf-light .pf-input:focus {
+  border-color: rgba(168,85,247,0.5);
+  box-shadow: 0 0 0 3px rgba(168,85,247,0.1);
+}
+html.pf-light .pf-textarea::placeholder,
+html.pf-light .pf-input::placeholder {
+  color: rgba(100,116,139,0.5);
+}
+
+html.pf-light header {
+  background: rgba(255,255,255,0.8);
+  border-color: rgba(0,0,0,0.06);
+}
+
+html.pf-light .pf-image-loading {
+  background: #e2e8f0;
+}
+
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 3px; }
@@ -251,6 +297,18 @@ body {
   background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.1), transparent);
   animation: pf-shimmer 1.5s ease-in-out infinite;
 }
+
+/* ─── Skeleton loading shimmer ─── */
+.pf-skeleton-shimmer {
+  background: linear-gradient(90deg, transparent 25%, rgba(168, 85, 247, 0.08) 50%, transparent 75%);
+  background-size: 200% 100%;
+  animation: pf-skeleton-slide 1.8s ease-in-out infinite;
+}
+@keyframes pf-skeleton-slide {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
 @keyframes pf-shimmer {
   0% { left: -100%; }
   100% { left: 100%; }

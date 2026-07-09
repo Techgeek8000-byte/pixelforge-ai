@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useStore } from '@/lib/store';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { getDailyUsage, FREE_DAILY_LIMIT } from '@/lib/image-engines';
 
 const crossLinks = [
@@ -18,6 +18,8 @@ export default function Header() {
   const setView = useStore((s) => s.setView);
   const setCheckoutOpen = useStore((s) => s.setCheckoutOpen);
   const isPremium = useStore((s) => s.isPremium);
+  const theme = useStore((s) => s.theme);
+  const setTheme = useStore((s) => s.setTheme);
 
   const handleGoPro = () => {
     resetTool();
@@ -77,6 +79,16 @@ export default function Header() {
               Go Pro
             </button>
           )}
+
+          {/* Theme Toggle */}
+          <button
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            className="ml-1 p-2 text-slate-400 hover:text-slate-200 rounded-lg hover:bg-white/[0.04] transition-colors"
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+          >
+            {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+          </button>
         </nav>
 
         {/* Mobile hamburger */}
